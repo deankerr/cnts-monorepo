@@ -1,0 +1,28 @@
+{
+  "name": "@repo/backend",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "convex dev --tail-logs",
+    "seed": "convex dev --once && convex run init",
+    "lint": "eslint . --max-warnings 0",
+    "clean": "git clean -xdf .turbo node_modules"
+  },
+  "exports": {
+    "./api": {
+      "types": "./convex/_generated/api.d.ts",
+      "import": "./convex/_generated/api.js"
+    },
+    "./dataModel": {
+      "types": "./convex/_generated/dataModel.d.ts"
+    }
+  },
+  "dependencies": {
+    "convex": "^1.17.3",
+    "convex-helpers": "^0.1.67"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*"
+  }
+}
